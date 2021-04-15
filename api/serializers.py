@@ -20,7 +20,7 @@ class UserSerializer(serializers.ModelSerializer):
 class StaffSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
-        fields = ("id", "username")
+        fields = ("id", "username", "password")
 
 
 class WorkingTimeSerializer(serializers.ModelSerializer):

@@ -26,9 +26,14 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/', include("api.urls")),
-    path('api-auth', include("rest_framework.urls")),
-    path('api/v1/rest-auth/', include("rest_auth.urls")),
+
+    # API endpoints
+    path('', include("api.urls")),
+    path('api-auth/', include("rest_framework.urls")),
+    path('rest-auth/', include("rest_auth.urls")),
+
+    # Core app endpoints
+    path('app/', include("core.urls")),
 
     path('docs/', include_docs_urls(
         title=API_TITLE,

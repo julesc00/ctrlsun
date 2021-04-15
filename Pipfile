@@ -11,6 +11,7 @@ djangorestframework = "*"
 django-cors-headers = "*"
 django-rest-auth = "*"
 drf-yasg = "*"
+django-filter = "*"
 
 [requires]
 python_version = "3.7"
