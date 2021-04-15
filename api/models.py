@@ -8,7 +8,7 @@ User = get_user_model()
 ROLES = (
     ("BOSS", "BOSS",),
     ("ACCOUNTING", "ACCOUNTING",),
-    ("ACCOUNTING", "GENERAL",),
+    ("GENERAL", "GENERAL",),
 )
 
 TIMES = (
