@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 from django.contrib.auth import get_user_model
 
@@ -10,18 +12,21 @@ ROLES = (
 )
 
 TIMES = (
-    (1, "StartWorkingTime"),
-    (2, "EndWorkingTime"),
+    ("StartWorkingTime", "StartWorkingTime"),
+    ("EndWorkingTime", "EndWorkingTime"),
 )
 
 
 class BranchLocation(models.Model):
-    branch_name = models.CharField(max_length=75, default=1, unique=True)
+    branch_name = models.CharField(max_length=75, unique=True)
     country = models.CharField(max_length=75)
     city = models.CharField(max_length=75, null=True)
 
+    class Meta:
+        verbose_name = "Branch Location"
+
     def __str__(self):
-        return self.branch_name
+        return self.branch_name.title()
 
 
 class NewUser(models.Model):
@@ -40,9 +45,22 @@ class NewUser(models.Model):
 
 
 class WorkingTime(models.Model):
-    employee = models.ForeignKey(User, on_delete=models.CASCADE)
+    employee = models.ForeignKey(NewUser, on_delete=models.CASCADE)
     event_record = models.DateTimeField(auto_now=True)
     action = models.CharField(max_length=75, choices=TIMES)
 
-    def __str__(self):
+    def get_date(self):
+        time = datetime.now()
+        if self.event_record.day == time.day:
+            return str(time.hour - self.event_record.hour) + "hours ago"
+        else:
+            if self.event_record.month == time.month:
+                return str(time.day - self.event_record.day) + "days ago"
+
         return self.event_record
+
+    class Meta:
+        verbose_name = "Working Time"
+
+    def __str__(self):
+        return str(self.event_record).title()
