@@ -33,6 +33,7 @@ class StaffViewSet(viewsets.ModelViewSet):
 
 class WorkingTimeViewSet(viewsets.ModelViewSet):
     """Perform CRUD operations for WorkingTime model."""
+
     permission_classes = (permissions.IsAuthenticated,)
     queryset = WorkingTime.objects.all()
     serializer_class = WorkingTimeSerializer

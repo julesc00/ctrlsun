@@ -9,10 +9,13 @@
 
     {% block css %}
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'accounts/css/materialize.css' %}">
-        <link rel="stylesheet" href="{% static 'accounts/css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'core/css/materialize.css' %}">
+        <link rel="stylesheet" href="{% static 'core/css/main.css' %}">
     {% endblock %}
-    <title>Document</title>
+
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/162ff428c2.js" crossorigin="anonymous"></script>
+    <title>{{ title }}</title>
 </head>
 <body>
 
@@ -20,5 +23,24 @@
 
 {% endblock %}
 
+
+{% block javascript %}
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous">
+
+    </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{% static 'core/js/materialize.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            //Custom JS and JQuery here
+
+            $("select").formSelect()
+        })
+    </script>
+{% endblock %}
 </body>
 </html>
