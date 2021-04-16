@@ -7,6 +7,30 @@ from api.models import BranchLocation, NewUser, WorkingTime
 User = get_user_model()
 
 
+class BranchLocationForm(forms.ModelForm):
+    class Meta:
+        model = BranchLocation
+        fields = "__all__"
+
+        widgets = {
+            "branch_name": forms.TextInput(attrs={
+                "class": "validate",
+                "id": "branch_name",
+                "type": "text"
+            }),
+            "country": forms.TextInput(attrs={
+                "class": "validate",
+                "id": "country",
+                "type": "text"
+            }),
+            "city": forms.TextInput(attrs={
+                "class": "validate",
+                "id": "country",
+                "type": "text"
+            })
+        }
+
+
 class UserForm(forms.ModelForm):
     class Meta:
         model = NewUser
