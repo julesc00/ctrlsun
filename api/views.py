@@ -8,24 +8,31 @@ from .serializers import BranchLocationSerializer, UserSerializer, WorkingTimeSe
 
 
 class BranchLocationViewSet(viewsets.ModelViewSet):
+    """Perform CRUD operations for BranchLocation Model."""
+
     permission_classes = (permissions.IsAuthenticated,)
     queryset = BranchLocation.objects.all()
     serializer_class = BranchLocationSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
+    """Perform CRUD operations for custom user model."""
+
     permission_classes = (permissions.IsAuthenticated,)
     queryset = NewUser.objects.all()
     serializer_class = UserSerializer
 
 
 class StaffViewSet(viewsets.ModelViewSet):
+    """Perform CRUD operations for user model."""
+
     permission_classes = (permissions.IsAdminUser,)
     queryset = get_user_model().objects.all()
     serializer_class = StaffSerializer
 
 
 class WorkingTimeViewSet(viewsets.ModelViewSet):
+    """Perform CRUD operations for WorkingTime model."""
     permission_classes = (permissions.IsAuthenticated,)
     queryset = WorkingTime.objects.all()
     serializer_class = WorkingTimeSerializer
