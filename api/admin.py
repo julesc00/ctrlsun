@@ -29,7 +29,7 @@ class EmployeeAdmin(admin.ModelAdmin):
 
 @admin.register(WorkingTime)
 class WorkingTimeAdmin(admin.ModelAdmin):
-    """Personalize the employee working-time panel"""
+    """Personalize the employee working-time panel."""
     ordering = ("-event_record",)
     search_fields = ("employee", "event_record", "action",)
     list_display = ("employee", "event_record", "action",)
