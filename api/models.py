@@ -18,6 +18,8 @@ TIMES = (
 
 
 class BranchLocation(models.Model):
+    """Create a Branch Location model."""
+
     branch_name = models.CharField(max_length=75, unique=True)
     country = models.CharField(max_length=75)
     city = models.CharField(max_length=75, null=True)
@@ -31,6 +33,7 @@ class BranchLocation(models.Model):
 
 class NewUser(models.Model):
     """Create a custom user model."""
+
     username = models.CharField(max_length=75, unique=True)
     password = models.CharField(max_length=75)
     role = models.CharField(max_length=75, choices=ROLES)
@@ -45,6 +48,8 @@ class NewUser(models.Model):
 
 
 class WorkingTime(models.Model):
+    """Create an employee working-time model."""
+
     employee = models.ForeignKey(NewUser, on_delete=models.CASCADE)
     event_record = models.DateTimeField(auto_now=True)
     action = models.CharField(max_length=75, choices=TIMES)
