@@ -6,6 +6,8 @@ from .models import NewUser, BranchLocation, WorkingTime
 
 
 class BranchLocationSerializer(serializers.ModelSerializer):
+    """Serialize data for the BranchLocation model."""
+
     url = serializers.HyperlinkedIdentityField(view_name="branches-detail")
 
     class Meta:
@@ -14,6 +16,8 @@ class BranchLocationSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
+    """Serialize data for the custom user model."""
+
     url = serializers.HyperlinkedIdentityField(view_name="users-detail")
 
     class Meta:
@@ -22,6 +26,8 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class StaffSerializer(serializers.ModelSerializer):
+    """Serialize data for the default User model."""
+
     url = serializers.HyperlinkedIdentityField(view_name="staff-detail")
 
     class Meta:
@@ -30,6 +36,8 @@ class StaffSerializer(serializers.ModelSerializer):
 
 
 class WorkingTimeSerializer(serializers.ModelSerializer):
+    """Serialize data for the employee working-time model."""
+
     url = serializers.HyperlinkedIdentityField(view_name="working-time-detail")
 
     class Meta:
